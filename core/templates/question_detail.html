@@ -1,0 +1,20 @@
+<a href="{% url 'home' %}">Главная</a>
+<h2>{{ question.title }}</h2>
+<p>{{ question.content }}</p>
+
+<h3>Ответы:</h3>
+<ul>
+  {% for answer in question.answer_set.all %}
+    <li>{{ answer.content }}</li>
+  {% empty %}
+    <li>Нет ответов</li>
+  {% endfor %}
+</ul>
+
+
+<h3>Добавить Ответ</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Отправить</button>
+</form>

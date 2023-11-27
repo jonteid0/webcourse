@@ -1,0 +1,9 @@
+<a href="{% url 'home' %}">Главная</a>
+<h2>{{ category.name }} Вопросы</h2>
+<ul>
+  {% for question in questions %}
+    <li><a href="{% url 'question_detail' question.id %}">{{ question.title }}</a></li>
+  {% empty %}
+    <li>Нет вопросов</li>
+  {% endfor %}
+</ul>

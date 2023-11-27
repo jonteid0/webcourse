@@ -1,0 +1,5 @@
+{% for category in categories %}
+  <h2>{{ category.name }}</h2>
+  <p>{{ category.description }}</p>
+  <a href="{% url 'question_list' category.id %}">Посмотреть вопросы</a>
+{% endfor %}
